@@ -17,6 +17,8 @@ public:
     virtual void acceptRequest(__int64_t* arg);
     virtual void errorInfo(const std::string Info);
     virtual __int32_t get_line(__int32_t* sock, std::string* buf, __int32_t size);
+
+    
 };
 
 #endif
