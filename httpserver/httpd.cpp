@@ -68,13 +68,22 @@ void Httpd::acceptRequest(__int64_t* arg){
     如果是cgi，则为真 */
     __int32_t cgi = 0;
     std::string* queryString = nullptr;
-    
+    /*
     numchars = get_line(client, buf, sizeof(buf));
     while(i < sizeof(method) - 1){
 
-    }
+    }*/
+
 }
 
 __int32_t Httpd::get_line(__int32_t* sock, std::string* buf, __int32_t size){
-
+    char c = '\0';
+    int n = 0;
+    /* for(int i = 0; (i < size - 1) && (c != '\n'); ++i){
+        n = recv(sock, &c, 1, 0);
+        /* DEBUG printf("%02X\n", c); 
+        if(n > 0){
+            if(c == 'c')
+        } 
+    }*/
 }
