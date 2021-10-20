@@ -26,13 +26,12 @@
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <stdint.h>
-
 #define ISspace(x) isspace((int)(x))
 
-#define SERVER_STRING "Server: jdbhttpd/0.1.0\r\n"
-#define STDIN   0
-#define STDOUT  1
-#define STDERR  2
+const char SERVER_STRING[] ="Server: jdbhttpd/0.1.0\r\n";
+const int STDIN = 0;
+const int STDOUT = 1;
+const int STDERR = 2;
 
 void accept_request(void *);
 void bad_request(int);
@@ -44,7 +43,7 @@ int get_line(int, char *, int);
 void headers(int, const char *);
 void not_found(int);
 void serve_file(int, const char *);
-int startup(u_short *);
+int startup(uint16_t *);
 void unimplemented(int);
 
 /**********************************************************************/
@@ -426,7 +425,7 @@ void serve_file(int client, const char *filename)
  * Parameters: pointer to variable containing the port to connect on
  * Returns: the socket */
 /**********************************************************************/
-int startup(u_short *port)
+int startup(uint16_t *port)
 {
     int httpd = 0;
     int on = 1;
@@ -489,7 +488,7 @@ void unimplemented(int client)
 int main(void)
 {
     int server_sock = -1;
-    u_short port = 4000;
+    uint16_t port = 4000;
     int client_sock = -1;
     struct sockaddr_in client_name;
     socklen_t  client_name_len = sizeof(client_name);
